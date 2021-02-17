@@ -1,0 +1,69 @@
+/* https://dribbble.com/shots/12216116-Neumorphism-Calculator-Design */
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  align-items: center;
+  background: linear-gradient(#dadada, #f0f0f0);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.calculator {
+  background-color: rgba(248, 250, 255);
+  border-radius: 1.875em;
+  height: 600px;
+  padding: 10px;
+  width: 300px;
+  display: grid;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 80px);
+  height: 100%;
+}
+
+.key {
+  align-items: center;
+  align-self: center;
+  background-color: rgba(248, 250, 255);
+  border-radius: 50%;
+  box-shadow: -3px -3px 4px 0 #ffffff, 3px 3px 4px 0 #cacfd2;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  font-weight: 900;
+  height: 60px;
+  justify-content: center;
+  justify-self: center;
+  width: 60px;
+}
+
+.operation {
+  font-size: 14px;
+  color: rgb(152, 152, 155);
+}
+
+.result {
+  bottom: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.screen {
+  background-color: pink;
+  height: 150px;
+  position: relative;
+  text-align: right;
+}
+
+.total {
+  color: tomato;
+  font-size: 40px;
+}
