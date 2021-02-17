@@ -1,14 +1,18 @@
-const showTime = () => {
-  const date = new Date()
-  const h = date.getHours()
-  const m = date.getMinutes()
-  const minutes = m < 10 ? `0${m}` : m
-  const time = `${h}:${minutes}`
+document.addEventListener('DOMContentLoaded', () => {
 
-  const timeElement = document.querySelector('#time')
-  timeElement.innerText = time
+  const showTime = () => {
+    const date = new Date()
+    const h = date.getHours()
+    const m = date.getMinutes()
+    const minutes = m < 10 ? `0${m}` : m
+    const time = `${h}:${minutes}`
 
-  setTimeout(showTime, 1000*60)
-}
+    const timeElement = document.querySelector('#time')
+    timeElement.innerText = time
 
-showTime()
+    setTimeout(showTime, 1000*60)
+  }
+
+  showTime()
+
+})

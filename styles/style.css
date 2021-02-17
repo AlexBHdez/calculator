@@ -1,24 +1,20 @@
 /* https://dribbble.com/shots/12216116-Neumorphism-Calculator-Design */
 :root {
-  /* Colors */
   --main-bg-color: #f5f6f7;
   --main-color: #64696d;
   --accent-color: #df4f51;
-  /* Neumorphism shadow */
-  --h1: 3px;
-  --h2: -3px;
-  --v1: 3px;
-  --v2: -3px;
-  --blur1: 4px;
-  --blur2: 4px;
-  --color-light: #ffffff;
-  --color-dark: #cacfd2;
+  --box-shadow: -3px -3px 4px #ffffff, 3px 3px 4px #cacfd2;
+  --box-shadow-inner: 3px -3px 4px #cacfd2, -3px 3px 4px #ffffff;
 }
 
 * {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+*, *::after, *::before {
+  box-sizing: border-box;
 }
 
 .body {
@@ -32,6 +28,7 @@
 .calculator {
   background-color: var(--main-bg-color);
   border-radius: 1.875em;
+  box-shadow: var(--box-shadow);
   display: grid;
   grid-template-rows: 20px 28% auto;
   height: 600px;
@@ -52,8 +49,8 @@
   align-self: center;
   border-radius: 50%;
   background-color: var(--main-bg-color);
-  box-shadow: var(--h1) var(--v1) var(--blur1) var(--color-dark),
-              var(--h2) var(--v2) var(--blur2) var(--color-light);
+  box-shadow: var(--box-shadow);
+  color: var(--main-color);
   cursor: pointer;
   display: flex;
   font-size: 20px;
@@ -70,10 +67,15 @@
   margin-top: 10px;
 }
 
-.screen {
-  align-items: flex-end;
+.result {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+}
+
+.screen {
+  display: grid;
+  grid-template-rows: 30% 70%;
   padding: 10px 10px 30px;
   position: relative;
   text-align: right;
@@ -86,6 +88,51 @@
   font-weight: 100;
   left: 10px;
   position: absolute;
+}
+
+.theme-mode {
+  align-items: flex-end;
+  cursor: pointer;
+  display: flex;
+}
+
+.theme-input {
+  height: 0;
+  opacity: 0;
+  width: 0;
+}
+
+.theme-label {
+  box-shadow: var(--box-shadow-inner);
+  border-radius: 10px;
+  height: 14px;
+  position: relative;
+  width: 80px;
+}
+
+.theme-label::after {
+  background-color: var(--main-bg-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 50%;
+  content: '';
+  height: 25px;
+  left: -8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+}
+
+.theme-label::before {
+  color: var(--accent-color);
+  content: 'DARK MODE';
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  position: absolute;
+  right: 6px;
+  top: 2px;
+  width: 100%;
 }
 
 .time {
