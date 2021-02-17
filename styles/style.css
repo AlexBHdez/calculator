@@ -4,6 +4,7 @@
   --main-color: #64696d;
   --accent-color: #df4f51;
   --box-shadow: -3px -3px 4px #ffffff, 3px 3px 4px #cacfd2;
+  --box-shadow-hover: 1px -1px 4px #cacfd2, -1px 1px 4px #ffffff;
   --box-shadow-inner: 3px -3px 4px #cacfd2, -3px 3px 4px #ffffff;
 }
 
@@ -59,6 +60,14 @@
   justify-content: center;
   justify-self: center;
   width: 60px;
+}
+
+.key:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.key:active {
+  box-shadow: var(--box-shadow-inner);
 }
 
 .operation {
