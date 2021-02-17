@@ -33,9 +33,10 @@
   background-color: var(--main-bg-color);
   border-radius: 1.875em;
   display: grid;
-  grid-template-rows: 30% auto;
+  grid-template-rows: 20px 28% auto;
   height: 600px;
-  padding: 10px;
+  padding: 15px 10px 10px;
+  position: relative;
   width: 300px;
 }
 
@@ -85,6 +86,17 @@
   font-weight: 100;
   left: 10px;
   position: absolute;
+}
+
+.time {
+  margin-right: auto;
+}
+
+.topbar {
+  display: flex;
+  font-size: 14px;
+  justify-content: flex-end;
+  margin: 0 15px;
 }
 
 .total {
