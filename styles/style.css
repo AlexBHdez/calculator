@@ -1,6 +1,7 @@
 /* https://dribbble.com/shots/12216116-Neumorphism-Calculator-Design */
 [data-theme="light"] {
   --accent-color: #df4f51;
+  --body-bg-color: linear-gradient(#dadada, #f0f0f0);
   --box-shadow: -3px -3px 4px #ffffff, 3px 3px 4px #cacfd2;
   --box-shadow-hover: 1px -1px 4px #cacfd2, -1px 1px 4px #ffffff;
   --box-shadow-inner: 3px -3px 4px #cacfd2, -3px 3px 4px #ffffff;
@@ -10,6 +11,7 @@
 
 [data-theme="dark"] {
   --accent-color: #2CAC86;
+  --body-bg-color: linear-gradient(#2c3e50, #34495e);
   --box-shadow: -3px -3px 4px #cacfd245, 3px 3px 4px #000000;
   --box-shadow-hover: 1px -1px 4px #000000, -1px 1px 4px #cacfd245;
   --box-shadow-inner: 3px -3px 4px #000000, -3px 3px 4px #cacfd245;
@@ -25,11 +27,12 @@
 
 *, *::after, *::before {
   box-sizing: border-box;
+  transition: all 0.35s ease;
 }
 
 .body {
   align-items: center;
-  background: linear-gradient(#dadada, #f0f0f0);
+  background: var(--body-bg-color);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -73,10 +76,12 @@
 
 .key:hover {
   box-shadow: var(--box-shadow-hover);
+  transform: scale(0.96);
 }
 
 .key:active {
   box-shadow: var(--box-shadow-inner);
+  transform: scale(0.92);
 }
 
 .net, .battery {
@@ -161,6 +166,10 @@
 
 .theme-label svg {
   fill: var(--accent-color);
+}
+
+.theme-label:hover svg {
+  transform: scale(0.95);
 }
 
 .time {
