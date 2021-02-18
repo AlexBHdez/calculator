@@ -74,6 +74,7 @@
   font-size: 15px;
   color: var(--main-color);
   margin-top: 10px;
+  min-height: 18px;
 }
 
 .result {
