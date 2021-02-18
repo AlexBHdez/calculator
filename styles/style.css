@@ -1,11 +1,20 @@
 /* https://dribbble.com/shots/12216116-Neumorphism-Calculator-Design */
-:root {
-  --main-bg-color: #f5f6f7;
-  --main-color: #64696d;
+[data-theme="light"] {
   --accent-color: #df4f51;
   --box-shadow: -3px -3px 4px #ffffff, 3px 3px 4px #cacfd2;
   --box-shadow-hover: 1px -1px 4px #cacfd2, -1px 1px 4px #ffffff;
   --box-shadow-inner: 3px -3px 4px #cacfd2, -3px 3px 4px #ffffff;
+  --main-bg-color: #f5f6f7;
+  --main-color: #64696d;
+}
+
+[data-theme="dark"] {
+  --accent-color: #2CAC86;
+  --box-shadow: -3px -3px 4px #cacfd245, 3px 3px 4px #000000;
+  --box-shadow-hover: 1px -1px 4px #000000, -1px 1px 4px #cacfd245;
+  --box-shadow-inner: 3px -3px 4px #000000, -3px 3px 4px #cacfd245;
+  --main-bg-color: #303B47;
+  --main-color: #ffffff;
 }
 
 * {
@@ -70,6 +79,11 @@
   box-shadow: var(--box-shadow-inner);
 }
 
+.net, .battery {
+  margin-left: 2px;
+  width: 20px;
+}
+
 .operation {
   font-size: 15px;
   color: var(--main-color);
@@ -93,6 +107,7 @@
 
 .screen::after {
   bottom: 15px;
+  color: var(--main-color);
   content: '=';
   font-size: 50px;
   font-weight: 100;
@@ -100,49 +115,52 @@
   position: absolute;
 }
 
+.signal {
+  width: 15px;
+}
+
 .theme-mode {
   align-items: flex-end;
-  cursor: pointer;
   display: flex;
 }
 
 .theme-input {
-  height: 0;
-  opacity: 0;
-  width: 0;
+  display: none;
 }
 
 .theme-label {
-  box-shadow: var(--box-shadow-inner);
-  border-radius: 10px;
-  height: 14px;
-  position: relative;
-  width: 80px;
-}
-
-.theme-label::after {
   background-color: var(--main-bg-color);
   box-shadow: var(--box-shadow);
   border-radius: 50%;
-  content: '';
+  cursor: pointer;
   height: 25px;
-  left: -8px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  padding: 3px;
+  position: relative;
   width: 25px;
 }
 
-.theme-label::before {
-  color: var(--accent-color);
-  content: 'DARK MODE';
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  position: absolute;
-  right: 6px;
-  top: 2px;
-  width: 100%;
+.theme-label:active {
+  box-shadow: var(--box-shadow-inner);
+}
+
+.theme-label:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.theme-input:checked + .theme-label {
+  box-shadow: var(--box-shadow);
+}
+
+.theme-input:checked + .theme-label:active {
+  box-shadow: var(--box-shadow-inner);
+}
+
+.theme-input:checked + .theme-label:hover {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.theme-label svg {
+  fill: var(--accent-color);
 }
 
 .time {
@@ -152,18 +170,14 @@
 .topbar {
   align-items: center;
   display: flex;
-  font-size: 14px;
+  color: var(--main-color);
+  font-size: 13px;
   justify-content: flex-end;
   margin: 0 15px;
 }
 
-.net, .battery {
-  margin-left: 2px;
-  width: 20px;
-}
-
-.signal {
-  width: 15px;
+.topbar svg {
+  fill: var(--main-color);
 }
 
 .total {
